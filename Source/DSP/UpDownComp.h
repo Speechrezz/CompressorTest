@@ -54,6 +54,5 @@ private:
     CompTimeAtomics atomicsTime;
 
     const float loudnessCutoff = 0.000015849f; // -96 dB
-    float thing = 0.f;
 };
 } // namespace xynth

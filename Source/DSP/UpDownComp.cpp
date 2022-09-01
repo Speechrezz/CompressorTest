@@ -40,8 +40,6 @@ void UpDownComp::process(juce::dsp::ProcessContextReplacing<float>& context)
 
         for (size_t i = 0; i < numSamples; ++i)
             outputSamples[i] = processSample(channel, inputSamples[i]);
-
-        //DBG(thing / float(numSamples));
     }
 }
 

@@ -1,8 +1,6 @@
-# Vibrato Plugin
+# Compressor Test plugin
 
-An effects plugin which adds vibrato to the incoming signal.
-
-![Screenshot](/GitHubStuff/screenshot.png)
+An upwards and downward compressor, inspired by Ableton's.
 
 ## License
 
