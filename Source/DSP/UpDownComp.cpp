@@ -36,8 +36,6 @@ void UpDownComp::process(juce::dsp::ProcessContextReplacing<float>& context)
         auto* inputSamples = inputBlock.getChannelPointer(channel);
         auto* outputSamples = outputBlock.getChannelPointer(channel);
 
-        thing = 0.f;
-
         for (size_t i = 0; i < numSamples; ++i)
             outputSamples[i] = processSample(channel, inputSamples[i]);
     }
@@ -56,7 +54,9 @@ void UpDownComp::update()
     const float attack = atomicsTime.attack->load(std::memory_order_relaxed);
     const float decay = atomicsTime.decay->load(std::memory_order_relaxed);
 
-    envelope.setAttackTime (attack);
+    // Interestingly enough, you get results closer to that of Ableton's Multiband Compressor
+    // if you half the attack time
+    envelope.setAttackTime (attack * 0.5f);
     envelope.setReleaseTime(decay);
 
     spikeRemoverEnv.setAttackTime(decay * 2.f);
